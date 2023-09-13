@@ -1,0 +1,15 @@
+---
+output: rmarkdown::github_document
+---
+
+# The 'paleospace' R package
+
+High-level Calculations with Paleogeographic and Paleoclimate Reconstructions
+
+# Installing
+
+```{R, eval=FALSE}
+devtools::install_github("adamkocsis/paleospace")
+
+```
+

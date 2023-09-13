@@ -1,3 +1,6 @@
 tests/
 .gitignore
 .git/
+README.Rmd
+README.md
+README.html
