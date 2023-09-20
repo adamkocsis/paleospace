@@ -1,6 +1,8 @@
 
 setwd(file.path(Sys.getenv("WorkSpace"),"2023-08-04_paleospace" ))
 
+# NO S2!!!!
+
 library(paleospace)
 library(tinytest)
 
@@ -18,6 +20,8 @@ expect_silent(ar1 <- areas(ne$geometry, lat=c(10, 90), plot=TRUE))
 expect_silent(ar2 <- areas(ne$geometry, lat=c(-40, 10), plot=TRUE))
 expect_silent(ar3 <- areas(ne$geometry, lat=c(-90, -40), plot=TRUE))
 
+# based on S2 and non-projected
+sf_use_s2(FALSE)
 arFull <- st_area(st_union(ne$geometry))
 
 # difference is lower than one square km
@@ -55,6 +59,7 @@ for(i in 1:nrow(pc)){
 	expect_silent(coast3 <- areas(coast, lat=c(-90, -40), plot=TRUE))
 	expect_silent(margin3 <- areas(margin, lat=c(-90, -40), plot=TRUE))
 
+	sf_use_s2(FALSE) # 
 	expect_silent(coastFull <- st_area(st_union(coast)))
 	expect_silent(marginFull <- st_area(st_union(margin)))
 
@@ -79,14 +84,14 @@ pcArea <- pcArea/sumArea
 # compare
 ars <- fetch("paleomap", "areas", datadir="data/chronosphere")
 
-## plot(pcArea[,"land"],ars$land_sum)
-## plot(pcArea[,"shelf"],ars$shelf_sum)
+# compare wiht pre-calculated
+plot(pcArea[,"land"],ars$land_sum)
+plot(pcArea[,"shelf"],ars$shelf_sum)
 
 # the difference
 # there is something off with the area calculation of some of the area calculation
-round(pcArea[,"land"]-ars$land_sum, 3)
-expect_true(all(pcArea[-c(2, 11),"land"]-ars$land_sum[-c(2, 11)]<0.01))
-expect_true(all(pcArea[-c(2, 11),"shelf"]-ars$shelf_sum[-c(2, 11)]<0.01))
+expect_true(all((pcArea[,"land"]-ars$land_sum)<0.001))
+expect_true(all((pcArea[,"shelf"]-ars$shelf_sum)<0.001))
 
 
 
