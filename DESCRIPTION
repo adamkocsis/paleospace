@@ -10,7 +10,7 @@ Authors@R: c(
 Maintainer: Adam T. Kocsis <adam.t.kocsis@gmail.com>
 Description: 
 License: CC BY 4.0
-Date: 2023-09-13
+Date: 2023-12-01
 BugReports: https://github.com/adamkocsis/paleospace/issues
 Encoding: UTF-8
 LazyData: true
