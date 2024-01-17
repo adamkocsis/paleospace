@@ -2,8 +2,8 @@
 % Please edit documentation in R/zzz.R
 \docType{package}
 \name{paleospace}
-\alias{paleospace}
 \alias{paleospace-package}
+\alias{paleospace}
 \title{High-level Calculations with Paleogeographic and Paleoclimate Reconstructions}
 \description{
 This is still a Release Candidate version. As is R, this is free software and comes with ABSOLUTELY NO WARRANTY. Nevertheless, notes about found bugs and suggestions are more than welcome.

@@ -7,7 +7,7 @@
 \usage{
 areas(x, ...)
 
-\S4method{areas}{sfc}(x, lat = NULL, plot = FALSE, ...)
+\S4method{areas}{sfc}(x, lat = NULL, plot = FALSE, s2 = FALSE, ...)
 }
 \arguments{
 \item{x}{A spatial object, either an sf, or sfc, or SpatRaster or RasterArray class object.}
@@ -15,6 +15,8 @@ areas(x, ...)
 \item{...}{additional arguments passed to class-specific methods.}
 
 \item{lat}{Latitudinal extent. A numeric vector of two values.}
+
+\item{s2}{Should S2 be turned off for the area calculations?}
 }
 \value{
 An numeric area.

@@ -1,6 +1,9 @@
 tests/
 .gitignore
 .git/
+environ.R
+utility.R
+matchtime.R
 README.Rmd
 README.md
 README.html
